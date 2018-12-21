@@ -22,6 +22,13 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
+ * create socket
+ */
+
+var io = require('socket.io').listen(server);
+
+
+/**
  * Listen on provided port, on all network interfaces.
  */
 
@@ -88,3 +95,15 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * socket 逻辑
+ * socket.emit("gettxt",newData);  单个发送事件
+ * socket.broadcast.emit('getall',newData);  群发事件
+ * socket.on("getfunction",data)  接收事件
+ */
+
+// var chat = require('../socket/chat');
+// chat(io);
+var msg = require('../socket/msg')
+msg(io);

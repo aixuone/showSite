@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="download">
+        <a href="javascript:;" @click="msg=true">留言板</a>
         <a href="/static/张旭简历.docx" download="张旭-web前端-简历">下载电子版简历</a>
     </div>
     <div class="basis">
@@ -159,21 +160,41 @@
           个人域名网站：
           <a
             class="site-link"
+            href="http://daifanba.com"
+            target="_blank"
+          >daifanba.com</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a
+            class="site-link"
             href="http://aixu.fun"
             target="_blank"
-          >http://aixu.fun</a>
+          >aixu.fun(施工中...)</a>
         </li>
 
       </ul>
     </div>
-
+    <el-dialog
+      title="您好，欢迎"
+      :visible.sync="msg"
+      width="96%"
+      top="5px"
+    >
+      <Msg></Msg>
+    </el-dialog>
+    
   </div>
 </template>
 <script>
+import Msg from './messageBorad';
     export default {
         name: "jianli",
+        components: {
+          Msg
+        },
         data(){
-            return{};
+            return{
+              msg: false
+            };
         },
         created() {
             require ('@/assets/styles/jianli.css');

@@ -8,6 +8,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+// // socket
+// var server = require('http').createServer(app);
+// var io = require('socket.io').listen(server);
+
+// //用户数组
+// var users = [];
+
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
